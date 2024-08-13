@@ -1,12 +1,19 @@
 import streamlit as st
 
-st.title('MBTI 성격 유형 분석 🤖')
+# 앱 제목 및 이미지
+st.title('✨ MBTI 성격 유형 분석 🤖')
+st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MBTI-I-E.png/800px-MBTI-I-E.png", 
+         caption="MBTI 성격 유형", use_column_width=True)
 
 # 사용자로부터 이름 입력받기
-name = st.text_input('이름을 입력해주세요!👨🏻‍💻')
+name = st.text_input('먼저, 당신의 이름을 알려주세요! 👤')
+
+# 사용자에게 환영 메시지 표시
+st.write("안녕하세요, " + (name if name else "친구") + "님! 오늘은 당신의 MBTI 성격 유형을 알아보고,")
+st.write("당신과 가장 잘 맞는 유형과 그렇지 않은 유형을 살펴볼 거에요. 😄")
 
 # MBTI 유형 선택박스
-mbti = st.selectbox('당신의 MBTI를 선택해주세요!', 
+mbti = st.selectbox('당신의 MBTI를 선택해주세요! 📊', 
                     ['INTJ', 'INTP', 'ENTJ', 'ENTP', 
                      'INFJ', 'INFP', 'ENFJ', 'ENFP', 
                      'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ', 
@@ -99,9 +106,12 @@ mbti_info = {
 # 버튼을 누르면 MBTI 설명과 궁합 정보 출력
 if st.button('MBTI 분석하기'):
     if mbti in mbti_info:
-        st.write(f'{name}님! 당신의 MBTI 유형은 {mbti}입니다.')
-        st.write('특성 설명: ' + mbti_info[mbti]['description'])
-        st.write('궁합이 잘 맞는 유형: ' + mbti_info[mbti]['good_match'])
-        st.write('궁합이 잘 안 맞는 유형: ' + mbti_info[mbti]['bad_match'])
+        st.write(f'💡 {name}님! 당신의 MBTI 유형은 **{mbti}**입니다.')
+        st.write('🔍 **특성 설명:** ' + mbti_info[mbti]['description'])
+        st.write('💘 **궁합이 잘 맞는 유형:** ' + mbti_info[mbti]['good_match'])
+        st.write('💔 **궁합이 잘 안 맞는 유형:** ' + mbti_info[mbti]['bad_match'])
     else:
         st.write('해당 MBTI 유형에 대한 정보가 없습니다.')
+
+# 마지막으로, 사용자가 MBTI 유형에 대한 추가 정보를 원할 경우 링크 제공
+st.write('더 많은 정보를 원하시나요? [여기](https://www.16personalities.com)에서 더 자세히 알아보세요!')
