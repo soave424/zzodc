@@ -2,8 +2,6 @@ import streamlit as st
 
 # 앱 제목 및 이미지
 st.title('✨ MBTI 성격 유형 분석 🤖')
-st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MBTI-I-E.png/800px-MBTI-I-E.png", 
-         caption="MBTI 성격 유형", use_column_width=True)
 
 # 사용자로부터 이름 입력받기
 name = st.text_input('먼저, 당신의 이름을 알려주세요! 👤')
